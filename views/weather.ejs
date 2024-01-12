@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs",{style:'weather.css'}) %>
+  <body>
+    <div class="Container">
+      <img
+        src="<%= weather.weatherImage %>"
+        class="video"
+        alt="not found"
+        id="weatherImage"
+      />
+      <div class="box" id="box">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-8 d-flex align-items-center">
+              <div class="d-flex align-items-center temperature">
+                <h1 class="display-3 fw-semibold text-white">
+                  <%= weather.temp%>°C
+                </h1>
+                <div class="ms-3">
+                  <p class="m-0 text-white fw-normal fs-2">
+                    <%= weather.name%>
+                  </p>
+                  <p class="m-0 text-white fw-normal">
+                    <%= weather.localTime%>
+                  </p>
+                </div>
+                <div class="ms-3">
+                  <img
+                    src="<%= weather.icon %>"
+                    width="40px"
+                    height="40px"
+                    alt="not found"
+                  />
+                  <p class="mt-2 mb-0 text-white fw-normal">
+                    <%= weather.condition%>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 colself">
+              <div class="SearchBox d-flex justify-content-end">
+                <form
+                  method="post"
+                  action="/cityName"
+                  class="d-flex w-100 form"
+                >
+                  <input
+                    type="search"
+                    name="search"
+                    id="search"
+                    value=""
+                    placeholder="enter the city"
+                  />
+                  <input
+                    value=""
+                    name="location"
+                    id="location"
+                    class="d-none"
+                  />
+                  <span class="searchIcon ms-2">
+                    <input
+                      type="submit"
+                      name=""
+                      value="submit"
+                      class="border-0"
+                      id="submitBtn"
+                    />
+                  </span>
+                </form>
+              </div>
+              <div class="location">
+                <ul>
+                  <li class="mt-4 fw-semibold" id="currentLocation">
+                    Current location
+                  </li>
+                  <li><a href="/cityName/delhi">Delhi</a></li>
+                  <li><a href="/cityName/mumbai">Mumbai</a></li>
+                  <li><a href="/cityName/pune">Pune</a></li>
+                  <li><a href="/cityName/bengaluru">Bengaluru</a></li>
+                </ul>
+                <hr />
+              </div>
+              <div class="WeatherDetail">
+                <ul>
+                  <li class="mt-4 fw-semibold">Weather Details</li>
+                  <li><span>Cloud </span> <span><%= weather.cloud%>%</span></li>
+                  <li>
+                    <span> humidity</span> <span><%= weather.humidity%>%</span>
+                  </li>
+                  <li>
+                    <span>Wind</span> <span><%= weather.wind_kph%> m/s</span>
+                  </li>
+                  <li>
+                    <span>Pressure</span>
+                    <span><%= weather.pressure_mb%> pa</span>
+                  </li>
+                  <li>
+                    <span>feelslike</span>
+                    <span><%= weather.feelslike_c%> ° C</span>
+                  </li>
+                </ul>
+                <hr />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="javascript/weather.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+</html>

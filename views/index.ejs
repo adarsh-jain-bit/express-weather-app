@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs",{style:'frontPage.css'}) %>
+  <body>
+    <div class="Container">
+      <video width="320" class="video" autoPlay loop muted>
+        <source src="assets/videoBG.mp4" type="video/mp4" />
+      </video>
+      <div class="box">
+        <video width="320" autoPlay loop muted>
+          <source src="assets/videoBG.mp4" type="video/mp4" />
+        </video>
+
+        <form action="/cityName" method="post" class="form">
+          <div class="searchBox">
+            <h3>A weather App to Know the Weather from Anywhere</h3>
+            <div>
+              <input
+                type="text"
+                class="searchInput"
+                value=""
+                name="search"
+                id="dataSearch"
+              />
+              <button type="submit" id="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+            <div id="error"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="javascript/frontpage.js"></script>
+</html>
